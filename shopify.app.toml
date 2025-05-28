@@ -1,31 +1,29 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "0c54729e0bc18f990101b85cb777f7c9"
-name = "Artwear Design"
-handle = "artwear-design"
-application_url = "https://example.com/"
+client_id = "e8b5e0096bcb0ffa8f6fb626e8fe0a60"
+name = "Artwear"
+handle = "artwear"
+application_url = "https://thousand-vhs-speaks-combo.trycloudflare.com"
 embedded = true
 
 [build]
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-04"
 
-  [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks/app/uninstalled"
-
-  [[webhooks.subscriptions]]
-  topics = [ "app/scopes_update" ]
-  uri = "/webhooks/app/scopes_update"
-
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [
+  "https://thousand-vhs-speaks-combo.trycloudflare.com/auth/callback",
+  "https://thousand-vhs-speaks-combo.trycloudflare.com/auth/shopify/callback",
+  "https://thousand-vhs-speaks-combo.trycloudflare.com/api/auth/callback"
+]
+
+[app_proxy]
+url = "https://thousand-vhs-speaks-combo.trycloudflare.com/design/metadesign"
+subpath = "saved-design"
+prefix = "apps"
 
 [pos]
 embedded = false
-
-
-[access_scopes]
-scopes = "read_customers,write_customers,read_customer_metafields,write_customer_metafields"
